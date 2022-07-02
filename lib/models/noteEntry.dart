@@ -1,5 +1,3 @@
-import 'package:assignment2_2022/models/note.dart';
-
 class NoteEntry {
   Map<dynamic, dynamic> notes;
   String username;

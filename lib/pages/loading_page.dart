@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:assignment2_2022/init.dart';
 import 'package:flutter/material.dart';
 

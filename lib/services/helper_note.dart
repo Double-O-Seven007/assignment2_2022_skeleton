@@ -6,12 +6,27 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void refreshNotesInUI(BuildContext context) async {
-  String result = await context.read<NotesServie>().getNotes(
-      context.read<UserService>().currentUser!.email,
-      firstLoad); //TODO push repo after implementing this.
+  String result = await context.read<NotesService>().getNotes(
+        context.read<UserService>().currentUser!.email,
+        firstLoad,
+      ); //TODO push repo after implementing this.
+  if (result != 'OK') {
+    showSnackbar(context, result);
+  } else {
+    showSnackbar(context, 'Data successfuly retrieved from the database.');
+  }
 }
 
-void saveNotesInUI(BuildContext context) async {}
+void saveNotesInUI(BuildContext context) async {
+  String result = await context
+      .read<NotesService>()
+      .saveNotesEntry(context.read<UserService>().currentUser!.email, true);
+  if (result != 'OK') {
+    showSnackbar(context, result);
+  } else {
+    showSnackbar(context, 'Data successfully saved online!');
+  }
+}
 
 void createNotesInUI(
   BuildContext context, {
@@ -27,11 +42,11 @@ void createNotesInUI(
       email: emailController,
       message: emailController,
     );
-    if (context.read<NotesServie>().notes.contains(note)) {
+    if (context.read<NotesService>().notes.contains(note)) {
       showSnackbar(context, 'Duplicate value. Please try again.');
     } else {
       titleController.text = '';
-      context.read<NotesServie>().createNote(note);
+      context.read<NotesService>().createNote(note);
       Navigator.pop(context);
     }
   }

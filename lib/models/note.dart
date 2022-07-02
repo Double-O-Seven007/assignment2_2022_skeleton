@@ -48,4 +48,11 @@ class Note {
       );
 
   //TODO add the comparison operator https://youtu.be/Q00EaLNN_CQ?t=294 this still to be dilberated on.
+  @override
+  bool operator ==(covariant Note note) {
+    return (title.toLowerCase().compareTo(note.title.toLowerCase()) == 0);
+  }
+
+  @override
+  int get hashCode => title.hashCode;
 }

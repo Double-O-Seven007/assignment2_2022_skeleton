@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:assignment2_2022/routes/route_manager.dart';
 import 'package:assignment2_2022/services/user_service.dart';
 import 'package:backendless_sdk/backendless_sdk.dart';
