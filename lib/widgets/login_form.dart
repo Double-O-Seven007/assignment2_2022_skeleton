@@ -1,13 +1,17 @@
 import 'package:assignment2_2022/services/helper_user.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tuple/tuple.dart';
 
 import '../miscellaneous/constants.dart';
 import '../miscellaneous/validators.dart';
 import '../routes/route_manager.dart';
 import '../services/locator_service.dart';
 import '../services/navigation_and_dialog_service.dart';
+import '../services/user_service.dart';
 import '../view_models/user_management_view_model.dart';
+import '../services/helper_user.dart';
+import 'app_progress_indicator.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({
@@ -96,7 +100,9 @@ class _LoginFormState extends State<LoginForm> {
                     primary: Colors.deepOrange,
                     minimumSize: const Size(140, 40),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    resetPasswordInUI(context, email: emailController.text);
+                  },
                   child: const Text('Reset Password'),
                 ),
               ],
@@ -106,4 +112,6 @@ class _LoginFormState extends State<LoginForm> {
       ),
     );
   }
+
+  //void resetPasswordInUI(BuildContext context, {required String email}) {}
 }
