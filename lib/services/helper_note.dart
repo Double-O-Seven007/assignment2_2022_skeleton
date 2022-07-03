@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 void refreshNotesInUI(BuildContext context) async {
   String result = await context.read<NotesService>().getNotes(
         context.read<UserService>().currentUser!.email,
-      ); //TODO push repo after implementing this.
+      );
   if (result != 'OK') {
     showSnackbar(context, result);
   } else {
