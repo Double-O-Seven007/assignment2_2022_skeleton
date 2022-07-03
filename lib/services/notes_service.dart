@@ -33,8 +33,8 @@ class NotesService with ChangeNotifier {
         .of('NoteEntry')
         .find(queryBuilder)
         .onError((error, stackTrace) {
-      result = error.toString();
-      return null; //This keeps adding itself back after every save, perhaps 'return' is wrongly placed ?
+      result = error
+          .toString(); //This keeps adding itself back after every save, perhaps 'return' is wrongly placed ?
     });
     if (result != 'OK') {
       _busyRetrieving = false;
@@ -78,7 +78,6 @@ class NotesService with ChangeNotifier {
         .save(_noteEntry!.toJson())
         .onError((error, stackTrace) {
       result = error.toString();
-      return null; //This line also adds itself after every save.
     });
     if (inUI) {
       _busySaving = false;
