@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner:
             false, //This will remove the red debug banner on emulator
         navigatorKey: navigatorKey,
+        //this is how we know
         onGenerateRoute: RouteManager.onGenerateRoute,
         initialRoute: RouteManager.loadingPage,
       ),
