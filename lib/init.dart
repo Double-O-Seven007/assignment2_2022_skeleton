@@ -1,4 +1,5 @@
 import 'package:assignment2_2022/routes/route_manager.dart';
+import 'package:assignment2_2022/services/notes_service.dart';
 import 'package:assignment2_2022/services/user_service.dart';
 import 'package:backendless_sdk/backendless_sdk.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,6 +20,9 @@ class InitApp {
         applicationId: appID);
     String result = await context.read<UserService>().checkIfUserLoggedIn();
     if (result == 'Ok') {
+      context
+          .read<NotesService>()
+          .getNotes(context.read<UserService>().currentUser!.email);
       Navigator.popAndPushNamed(context, RouteManager.noteListPage);
     } else {
       Navigator.popAndPushNamed(context, RouteManager.loginPage);

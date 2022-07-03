@@ -21,7 +21,7 @@ class NotesService with ChangeNotifier {
   bool get busyRetrieving => _busyRetrieving;
   bool get busySaving => _busySaving;
 
-  Future<String> getNotes(String username, bool firstLoad) async {
+  Future<String> getNotes(String username) async {
     String result = 'Ok';
     DataQueryBuilder queryBuilder = DataQueryBuilder()
       ..whereClause = "username = '$username'";
@@ -56,7 +56,6 @@ class NotesService with ChangeNotifier {
 
     _busyRetrieving = false;
     notifyListeners();
-    //TODO implement code for firstLoad here.
     return result;
   }
 

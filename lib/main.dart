@@ -29,6 +29,8 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner:
+            false, //This will remove the red debug banner on emulator
         navigatorKey: navigatorKey,
         onGenerateRoute: RouteManager.onGenerateRoute,
         initialRoute: RouteManager.loadingPage,

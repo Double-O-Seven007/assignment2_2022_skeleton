@@ -68,9 +68,11 @@ class _LoginFormState extends State<LoginForm> {
                 minimumSize: const Size.fromHeight(40),
               ),
               onPressed: () {
-                loginUserInUI(context,
-                    email: emailController.text,
-                    password: passwordController.text);
+                loginUserInUI(
+                  context,
+                  email: emailController.text,
+                  password: passwordController.text,
+                );
               },
               child: const Text('Login'),
             ),
